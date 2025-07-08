@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nikhil Namade | Engineering Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
+    }
+    .btn-animate {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s ease;
+    }
+    .btn-animate::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.2);
+      transform: skewX(-20deg);
+      transition: left 0.5s ease;
+    }
+    .btn-animate:hover::before {
+      left: 100%;
+    }
+    .btn-animate:hover {
+      transform: scale(1.05) rotate(-1deg);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    .project{
+      width: 100%;
+      height: 30%;
+      border-top-left-radius: 1vmin;
+      border-top-right-radius: 1vmin;
+    }
+    #home {
+      transition: background 0.3s ease;
+      background: radial-gradient(circle at center, #d5e8ff, #ffffff);
+    }
+    #contact{
+      transition: background 0.3s ease;
+      background: radial-gradient(circle at center, #d5e8ff, #ffffff);
+    }
+    #mobile-menu {
+      transition: max-height 0.4s ease, opacity 0.4s ease;
+      overflow: hidden;
+    }
+    #mobile-menu.hidden {
+      max-height: 0;
+      opacity: 0;
+    }
+    #mobile-menu.active {
+      max-height: 500px;
+      opacity: 1;
+    }
+    .cardData{
+      height: 50%;
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-800">
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 w-full bg-white shadow z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-blue-600">Nikhil's Portfolio</h1>
+      <div class="md:hidden">
+        <button id="menu-btn" class="text-3xl focus:outline-none">&#9776;</button>
+      </div>
+      <ul id="menu" class="hidden md:flex space-x-6 font-medium">
+        <li><a href="#home" class="hover:text-blue-500 duration-300">Home</a></li>
+        <li><a href="#about" class="hover:text-blue-500 duration-300">About</a></li>
+        <li><a href="#skills" class="hover:text-blue-500 duration-300">Skills</a></li>
+        <li><a href="#projects" class="hover:text-blue-500 duration-300">Projects</a></li>
+        <li><a href="#certificates" class="hover:text-blue-500 duration-300">Certificates</a></li>
+        <li><a href="#contact" class="hover:text-blue-500 duration-300">Contact Me</a></li>
+      </ul>
+    </div>
+    <ul id="mobile-menu" class="md:hidden hidden flex-col space-y-4 px-4 pb-4 font-medium bg-white">
+      <li><a href="#home" class="block hover:text-blue-500 duration-300">Home</a></li>
+      <li><a href="#about" class="block hover:text-blue-500 duration-300">About</a></li>
+      <li><a href="#skills" class="block hover:text-blue-500 duration-300">Skills</a></li>
+      <li><a href="#projects" class="block hover:text-blue-500 duration-300">Projects</a></li>
+      <li><a href="#certificates" class="block hover:text-blue-500 duration-300">Certificates</a></li>
+      <li><a href="#contact" class="block hover:text-blue-500 duration-300">Contact Me</a></li>
+    </ul>
+  </nav>
+
+  <!-- Home -->
+  <section id="home" class="h-screen flex flex-col justify-center items-center text-center bg-gradient-to-r from-blue-100 to-white pt-20 fade-in">
+    <!-- <img src="nikhil.jpg" alt="Profile" class="w-32 h-32 rounded-full mb-4 shadow-lg"> -->
+    <h1 class="text-4xl font-semibold">Hi, I'm Nikhil Namade</h1>
+    <p class="text-gray-600 mt-2 text-lg">Engineering Student | Full Stack Developer</p>
+    <div class="flex">
+      <a href="#projects" class="mt-6  px-6 py-2 bg-blue-600 text-white rounded-xl btn-animate">View My Work</a>
+      <a href="nikhil resume.pdf" target="_blank" class="mt-6 px-6 py-2 ml-2 bg-blue-600 text-white rounded-xl btn-animate">View CV</a>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-20 px-6 text-center bg-white fade-in">
+    <h2 class="text-3xl font-bold text-blue-600 mb-6">About Me</h2>
+    <p class="max-w-3xl mx-auto text-gray-700 text-lg">
+      I'm a passionate developer specializing in building modern web applications with cutting-edge technologies. My journey in web development began during my college days, and since then I've been constantly learning and improving my skills.
+I approach each project with attention to detail and a focus on delivering high-quality, scalable solutions. My goal is to create applications that not only look great but also provide exceptional user experiences.
+    </p>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="py-20 px-6 bg-gray-50 text-center fade-in">
+    <h2 class="text-3xl font-bold text-blue-600 mb-10">My Skills</h2>
+    <div class="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-w-6xl mx-auto">
+      <!-- Skill Cards -->
+      <div class="bg-blue-600 text-white btn-animate rounded-xl shadow p-4 transform transition duration-300 hover:scale-110 hover:rotate-1 active:scale-95 cursor-pointer">C/C++</div>
+      <div class="bg-blue-600 text-white btn-animate rounded-xl shadow p-4 transform transition duration-300 hover:scale-110 hover:rotate-1 active:scale-95 cursor-pointer">JavaScript</div>
+      <div class="bg-blue-600 text-white btn-animate rounded-xl shadow p-4 transform transition duration-300 hover:scale-110 hover:rotate-1 active:scale-95 cursor-pointer">HTML</div>
+      <div class="bg-blue-600 text-white btn-animate rounded-xl shadow p-4 transform transition duration-300 hover:scale-110 hover:rotate-1 active:scale-95 cursor-pointer">CSS</div>
+      <div class="bg-blue-600 text-white btn-animate rounded-xl shadow p-4 transform transition duration-300 hover:scale-110 hover:rotate-1 active:scale-95 cursor-pointer">ReactJS</div>
+      <div class="bg-blue-600 text-white btn-animate rounded-xl shadow p-4 transform transition duration-300 hover:scale-110 hover:rotate-1 active:scale-95 cursor-pointer">NodeJs</div>
+      <div class="bg-blue-600 text-white btn-animate rounded-xl shadow p-4 transform transition duration-300 hover:scale-110 hover:rotate-1 active:scale-95 cursor-pointer">ExpressJS</div>
+      <div class="bg-blue-600 text-white btn-animate rounded-xl shadow p-4 transform transition duration-300 hover:scale-110 hover:rotate-1 active:scale-95 cursor-pointer">MongoDB</div>
+      <div class="bg-blue-600 text-white btn-animate rounded-xl shadow p-4 transform transition duration-300 hover:scale-110 hover:rotate-1 active:scale-95 cursor-pointer">MySQL</div>
+      <div class="bg-blue-600 text-white btn-animate rounded-xl shadow p-4 transform transition duration-300 hover:scale-110 hover:rotate-1 active:scale-95 cursor-pointer">Git</div>
+      <div class="bg-blue-600 text-white btn-animate rounded-xl shadow p-4 transform transition duration-300 hover:scale-110 hover:rotate-1 active:scale-95 cursor-pointer">GitHub</div>
+      <div class="bg-blue-600 text-white btn-animate rounded-xl shadow p-4 transform transition duration-300 hover:scale-110 hover:rotate-1 active:scale-95 cursor-pointer">DSA</div>
+
+    </div>
+  </section>
+
+  <section id="projects" class="scroll-mt-24 py-20 px-6 bg-gray-100 fade-in">
+    <h2 class="text-3xl font-bold text-center text-blue-600 mb-10">Projects</h2>
+  
+    <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto items-start">
+      
+      <!-- Project 1 -->
+      <div class="bg-white rounded-xl shadow-lg transform transition duration-300 hover:scale-105">
+        <img src="railway.jpeg" class="w-full object-cover rounded-t-xl" alt="Railway Concession System">
+        <div class="p-6">
+          <h3 class="text-xl font-semibold mb-2">Railway Concession System</h3>
+          <p class="text-gray-600 mb-4">A web-based application developed for college students to get local train ticket concessions within a few clicks. Built using the MERN stack with an interactive and responsive UI.</p>
+          <div class="mt-4">
+            <span class="inline-block btn-animate cursor-pointer bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full mr-2 mb-2">MongoDB</span>
+            <span class="inline-block btn-animate cursor-pointer bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full mr-2 mb-2">ExpressJS</span>
+            <span class="inline-block btn-animate cursor-pointer bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full mr-2 mb-2">ReactJS</span>
+            <span class="inline-block btn-animate cursor-pointer bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full mr-2 mb-2">NodeJS</span>
+            <span class="inline-block btn-animate cursor-pointer bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full mr-2 mb-2">Twilio</span>
+            <span class="inline-block btn-animate cursor-pointer bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full mr-2 mb-2">AWS S3</span>
+          </div>
+          <a href="https://railway-concession-system.onrender.com/" class="text-blue-500 inline-block">View More →</a>
+        </div>
+      </div>
+  
+      <!-- Project 2 -->
+      <div class="bg-white rounded-xl shadow-lg transform transition duration-300 hover:scale-105">
+        <img src="portfolioimg.webp" class="w-full object-cover rounded-t-xl" alt="Portfolio Generator">
+        <div class="p-6">
+          <h3 class="text-xl font-semibold mb-2">Portfolio Generator</h3>
+          <p class="text-gray-600 mb-4">A portfolio builder for students with multiple templates and dynamic data fetching using APIs. Built using the MERN stack and designed to be fully responsive.</p>
+          <div class="mt-4">
+            <span class="inline-block btn-animate cursor-pointer bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full mr-2 mb-2">MongoDB</span>
+            <span class="inline-block btn-animate cursor-pointer bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full mr-2 mb-2">ExpressJS</span>
+            <span class="inline-block btn-animate cursor-pointer bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full mr-2 mb-2">ReactJS</span>
+            <span class="inline-block btn-animate cursor-pointer bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full mr-2 mb-2">NodeJS</span>
+            <span class="inline-block btn-animate cursor-pointer bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full mr-2 mb-2">AWS S3</span>
+            <span class="inline-block btn-animate cursor-pointer bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full mr-2 mb-2">EmailJS</span>
+          </div>
+          <a href="https://portfolio-g-weld.vercel.app/" class="text-blue-500 inline-block">View More →</a>
+        </div>
+      </div>
+  
+      <!-- Project 3 -->
+      <div class="bg-white rounded-xl shadow-lg transform transition duration-300 hover:scale-105">
+        <img src="weather.png" class="w-full object-cover rounded-t-xl" alt="Weather App">
+        <div class="p-6">
+          <h3 class="text-xl font-semibold mb-2">Weather App</h3>
+          <p class="text-gray-600 mb-4">A real-time weather dashboard built with JavaScript and OpenWeather API, providing live weather updates and a clean, intuitive UI.</p>
+          <div class="mt-4">
+            <span class="inline-block btn-animate cursor-pointer bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full mr-2 mb-2">HTML</span>
+            <span class="inline-block btn-animate cursor-pointer bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full mr-2 mb-2">CSS</span>
+            <span class="inline-block btn-animate cursor-pointer bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full mr-2 mb-2">JavaScript</span>
+            <span class="inline-block btn-animate cursor-pointer bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full mr-2 mb-2">OpenWeather API</span>
+          </div>
+          <a href="https://nikhilnamade.github.io/weatherAPP/" class="text-blue-500 inline-block">View More →</a>
+        </div>
+      </div>
+  
+    </div>
+  </section>
+  
+  
+
+  <!-- Certificates -->
+  <section id="certificates" class="py-20 px-6 bg-white fade-in">
+    <h2 class="text-3xl font-bold text-center text-blue-600 mb-10">Certificates</h2>
+    <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      <img src="candcpp.jpg" class="rounded-lg btn-animate shadow-md" alt="Certificate 1">
+      <img src="java.jpg" class="rounded-lg btn-animate shadow-md" alt="Certificate 2">
+      <img src="india.jpeg" class="rounded-lg btn-animate shadow-md" alt="Certificate 3">
+      <img src="college.jpeg" class="rounded-lg btn-animate shadow-md" alt="Certificate 4">
+      <img src="Deloitte.png" class="rounded-lg btn-animate shadow-md" alt="Certificate 5">
+      <img src="nikhil udemy.jpg" class="rounded-lg btn-animate shadow-md" alt="Certificate 6">
+      <img src="Tata.png" class="rounded-lg btn-animate shadow-md" alt="Certificate 7">
+      <img src="AWS.png" class="rounded-lg btn-animate shadow-md" alt="Certificate 8">
+      <img src="powerbi.png" class="rounded-lg btn-animate shadow-md" alt="Certificate 9">
+    </div>
+  </section>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script>
+    (function() {
+      emailjs.init("gTxw6jLYP9gq03_Y_"); // Replace with your EmailJS public key
+    })();
+  </script>
+  <!-- Contact -->
+  <section id="contact" class="py-20 px-6 bg-blue-50 text-center fade-in">
+    <h2 class="text-3xl font-bold text-blue-600 mb-6">Contact Me</h2>
+    <form class="max-w-xl mx-auto space-y-4" id="contact-form">
+      <input type="text" placeholder="Your Name" name="name" class="w-full px-4 py-2 border rounded-lg" required>
+      <input type="email" placeholder="Your Email" name="from_email" class="w-full px-4 py-2 border rounded-lg" required>
+      <textarea rows="5" placeholder="Your Message" name="message" class="w-full px-4 py-2 border rounded-lg" required></textarea>
+      <button class="px-6 py-2 bg-blue-600 text-white rounded-lg btn-animate">Send Message</button>
+    </form>
+    <div class="mt-6">
+      <a href="https://www.linkedin.com/in/nikhil-namade-34b063281/" class="text-blue-500 mx-2">LinkedIn</a>
+      <a href="https://github.com/NikhilNamade" class="text-blue-500 mx-2">GitHub</a>
+      <a href="nikhilnamade39@gmail.com" class="text-blue-500 mx-2">Email</a>
+    </div>
+  </section>
+
+  <!-- Scroll Animation Script -->
+  <script>
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+      mobileMenu.classList.toggle("active");
+    });
+    document.getElementById("contact-form").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        emailjs.sendForm('service_ap3xoxr', 'template_vj3rpmy', this)
+          .then(function(response) {
+            alert("Message sent successfully!");
+            console.log("done", response);
+          }, function(error) {
+            alert("FAILED to send message. Please try again.");
+            console.error(error);
+          });
+
+        this.reset(); // Reset form after submission
+      });
+
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    const home = document.getElementById('home');
+    home.addEventListener('mousemove', (e) => {
+      const x = e.clientX / window.innerWidth;
+      const y = e.clientY / window.innerHeight;
+      const color = `radial-gradient(circle at ${x * 100}% ${y * 100}%, #d5e8ff, #ffffff)`;
+      home.style.background = color;
+    });
+
+    const contact = document.getElementById('contact');
+    contact.addEventListener('mousemove', (e) => {
+      const x = e.clientX / window.innerWidth;
+      const y = e.clientY / window.innerHeight;
+      const color = `radial-gradient(circle at ${x * 100}% ${y * 100}%, #d5e8ff, #ffffff)`;
+      contact.style.background = color;
+    });
+  </script>
+
+</body>
+</html>
